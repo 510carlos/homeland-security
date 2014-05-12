@@ -14,6 +14,7 @@ class Case_model extends CI_Model {
     {
     	$sql = $this->db->from('case')->where('caseID', $caseID)->get();
     	$data = $sql->row();
+    	$data->data = json_decode($data->data);
     	return $data;
     }
     
