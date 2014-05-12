@@ -1,6 +1,6 @@
 class User_model extends CI_Model {
 
-    $user; // holds all the fields
+    var $user; // holds all the fields
 
     function __construct()
     {
