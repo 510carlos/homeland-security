@@ -1,14 +1,6 @@
 class User_model extends CI_Model {
 
-    $userID;
-    $username;
-    $password;
-    $name;
-    $address;
-    $social;
-    $email;
-    $DoB;
-    $Date;
+    $user; // holds all the fields
 
     function __construct()
     {
@@ -29,7 +21,7 @@ class User_model extends CI_Model {
             'Date'      => time(),
         );
         $this->db->insert('users', $data);
-        
+        $this->user = $this->getEmployee($this->db->insert_id());
     }
     
     function hideEmployee () 
