@@ -8,10 +8,9 @@ class Department_model extends CI_Model {
         parent::__construct();
     }
     
-    function addDepartment ($employeeid, $name) 
+    function addDepartment ($name) 
     {
         $data = array(
-            'employeeid'  => $employeeid,
             'name'  => $name,
         );
         $this->db->insert('departments', $data);
