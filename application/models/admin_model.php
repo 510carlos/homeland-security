@@ -8,7 +8,7 @@ class Admin_model extends CI_Model {
         parent::__construct();
     }
     
-    function addUser ($username, $password, $name, $address, $social, $email, $dob) 
+    function addAdmin ($username, $password, $name, $address, $social, $email, $dob) 
     {
         $data = array(
             'username'  => $username,
@@ -24,7 +24,7 @@ class Admin_model extends CI_Model {
         $this->user = $this->getUser($this->db->insert_id());
     }
     
-    function hideUser () 
+    function hideAdmin () 
     {
         $data = array('hide' => 1);
     	$this->db->where('userid', $caseID);
@@ -32,7 +32,7 @@ class Admin_model extends CI_Model {
     
     }
     
-    function getUser () 
+    function getAdmin () 
     {
         $sql = $this->db->from('users')->where('userid', $userid)->get();
         $data = $sql->row();
