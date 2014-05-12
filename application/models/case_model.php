@@ -1,8 +1,6 @@
 class Case_model extends CI_Model {
 	
-    var $CaseID;
-    var $operation;
-    var $enocoded_data;
+    var $case;
     
     function __construct()
     {
@@ -21,8 +19,6 @@ class Case_model extends CI_Model {
     
     function addCase($operation, $encoded_data)
     {
-    	$this->operation = $opearation;
-        $this->encoded_data = $encoded_data;
         
         $data = array(
            'operation' => $operation,
@@ -30,12 +26,11 @@ class Case_model extends CI_Model {
            'hide'  => 0,
         );
         
-        
         // look CI insert
-        $query = $this->db->insert('cases', $data);
+        $this->db->insert('cases', $data);
         
-        $this->caseID = $case->caseID;
-        return $query->result();
+        $this->case = $this->getCase($this->db->insert_id());
+   
     }
 
     function hideCase($caseID) 
