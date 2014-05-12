@@ -1,8 +1,6 @@
 class Admin_model extends CI_Model {
 
-    var $title   = '';
-    var $content = '';
-    var $date    = '';
+    var $admin;
 
     function __construct()
     {
