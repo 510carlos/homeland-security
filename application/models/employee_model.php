@@ -10,11 +10,12 @@ class Employee_model extends CI_Model {
     
 
     
-    function addEmployee ($username, $password, $name, $address, $social, $email, $dob) 
+    function addEmployee ($dapartment, $username, $password, $name, $address, $social, $email, $dob) 
     {
         $data = array(
             'username'  => $username,
             'password'  => $password,
+            'department'=> $department,
             'name'      => $name,
             'address'   => $address,
             'social'    => $social,
