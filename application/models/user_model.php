@@ -8,7 +8,7 @@ class User_model extends CI_Model {
         parent::__construct();
     }
     
-    function addEmployee ($username, $password, $name, $address, $social, $email, $dob) 
+    function addUser ($username, $password, $name, $address, $social, $email, $dob) 
     {
         $data = array(
             'username'  => $username,
@@ -21,10 +21,10 @@ class User_model extends CI_Model {
             'Date'      => time(),
         );
         $this->db->insert('users', $data);
-        $this->user = $this->getEmployee($this->db->insert_id());
+        $this->user = $this->getUser($this->db->insert_id());
     }
     
-    function hideEmployee () 
+    function hideUser () 
     {
         $data = array('hide' => 1);
     	$this->db->where('userid', $caseID);
@@ -32,7 +32,7 @@ class User_model extends CI_Model {
     
     }
     
-    function getEmployee () 
+    function getUser () 
     {
         $sql = $this->db->from('users')->where('userid', $userid)->get();
         $data = $sql->row();
