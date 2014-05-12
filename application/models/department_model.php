@@ -8,20 +8,14 @@ class Department_model extends CI_Model {
         parent::__construct();
     }
     
-    function addDepartment ($username, $password, $name, $address, $social, $email, $dob) 
+    function addDepartment ($employeeid, $name) 
     {
         $data = array(
-            'username'  => $username,
-            'password'  => $password,
-            'name'      => $name,
-            'address'   => $address,
-            'social'    => $social,
-            'email'     => $email,
-            'DoB'       => $dob,
-            'Date'      => time(),
+            'employeeid'  => $employeeid,
+            'name'  => $name,
         );
         $this->db->insert('departments', $data);
-        $this->user = $this->getUser($this->db->insert_id());
+        $this->department = $this->getDepartment($this->db->insert_id());
     }
     
     function hideDepartment () 
