@@ -1,8 +1,14 @@
 class User_model extends CI_Model {
 
-    var $title   = '';
-    var $content = '';
-    var $date    = '';
+    $userID;
+    $username;
+    $password;
+    $name;
+    $address;
+    $social;
+    $email;
+    $DoB;
+    $Date;
 
     function __construct()
     {
@@ -10,10 +16,37 @@ class User_model extends CI_Model {
         parent::__construct();
     }
     
-    function addEmployee () {}
+    function addEmployee ($username, $password, $name, $address, $social, $email, $dob) 
+    {
+        $data = array(
+            'username'  => $username,
+            'password'  => $password,
+            'name'      => $name,
+            'address'   => $address,
+            'social'    => $social,
+            'email'     => $email,
+            'DoB'       => $dob,
+            'Date'      => time(),
+        );
+        $this->db->insert('users', $data);
+        
+    }
     
-    function hideEmployee () {}
+    function hideEmployee () 
+    {
+        $data = array('hide' => 1);
+    	$this->db->where('userid', $caseID);
+        $this->db->update('users', $data); 
     
-    function getEmployee () {}
+    }
+    
+    function getEmployee () 
+    {
+        $sql = $this->db->from('users')->where('userid', $userid)->get();
+        $data = $sql->row();
+        
+        return $data;
+    }
+    
 
 }
