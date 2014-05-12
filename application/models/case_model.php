@@ -13,7 +13,7 @@ class Case_model extends CI_Model {
     function getCase($caseID) 
     {
     	$sql = $this->db->from('case'')->where('caseID', $caseID)->get();
-    	$data = $sql->row()
+    	$data = $sql->row();
     	return $data;
     }
     
