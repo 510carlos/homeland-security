@@ -1,8 +1,6 @@
 class Employee_model extends CI_Model {
 
-    var $title   = '';
-    var $content = '';
-    var $date    = '';
+    var $employee;
 
     function __construct()
     {
@@ -24,7 +22,7 @@ class Employee_model extends CI_Model {
             'DoB'       => $dob,
             'Date'      => time(),
         );
-        $this->db->insert('users', $data);
+        $this->db->insert('employees', $data);
         $this->user = $this->getEmployee($this->db->insert_id());
     }
     
@@ -32,13 +30,13 @@ class Employee_model extends CI_Model {
     {
         $data = array('hide' => 1);
     	$this->db->where('userid', $caseID);
-        $this->db->update('users', $data); 
+        $this->db->update('employees', $data); 
     
     }
     
     function getEmployee () 
     {
-        $sql = $this->db->from('users')->where('userid', $userid)->get();
+        $sql = $this->db->from('employees')->where('userid', $userid)->get();
         $data = $sql->row();
         
         return $data;
