@@ -13,7 +13,8 @@ class Cases extends CI_Controller {
 			$form_id = (int) $this->input->post('form_id');
 			foreach($_POST as $key => $p) {
 				$match_prefix = "DHS_";
-				$prefix = substr($p, 0,3);	
+				$prefix = substr($key, 0,4);
+				
 				if($match_prefix == $prefix) {
 					$data[$key] = $p;
 				}
@@ -24,7 +25,7 @@ class Cases extends CI_Controller {
 				'data'		=> json_encode($data),
 			);
 			
-			var_dump($data);
+			var_dump($insert);
 			exit;
 			//$this->db->where('form_id', $form_id)->insert('cases', $data);
 		}
